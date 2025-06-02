@@ -4,6 +4,10 @@ const axios = require("axios");
 const querystring = require("querystring");
 require("dotenv").config();
 
+console.log("CLIENT_ID:", process.env.CLIENT_ID);
+console.log("REDIRECT_URI:", process.env.REDIRECT_URI);
+
+
 const app = express();
 app.use(cors());
 
@@ -16,11 +20,14 @@ app.get('/login', (req, res) => {
     client_id: process.env.CLIENT_ID,
     scope: scope,
     redirect_uri: process.env.REDIRECT_URI,
+    show_dialog : true,
   });
-  
-  console.log("Redirecting to Spotify:", authQuery);
-  res.redirect(`https://accounts.spotify.com/authorize?${authQuery}`);
+
+  const fullUrl = `https://accounts.spotify.com/authorize?${authQuery}`;
+  console.log("Redirecting to Spotify:", fullUrl); // ✅ print full URL
+  res.redirect(fullUrl);
 });
+
 
 
 app.get("/callback", async (req, res) => {
