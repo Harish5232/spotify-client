@@ -1,42 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import ProfileCard from "./components/ProfileCard";
+import "./App.css";
 
 function App() {
+  const [profile, setProfile] = useState(null);
+
   const handleLogin = () => {
-    // Redirect to your backend login route
-    window.location.href = 'http://127.0.0.1:5000/login';
+    window.location.href = "http://127.0.0.1:5000/login";
   };
 
+  useEffect(() => {
+    const token = new URLSearchParams(window.location.search).get("access_token");
+    console.log("Extracted Token:", token);
+
+    if (token) {
+      axios
+        .get("https://api.spotify.com/v1/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          console.log("Spotify Profile:", res.data);
+          setProfile(res.data);
+        })
+        .catch((err) => {
+          console.error("API Error:", err);
+        });
+    }
+  }, []);
+
   return (
-    <div style={styles.container}>
-      <h1>Spotify Client</h1>
-      <button style={styles.button} onClick={handleLogin}>
-        Login with Spotify
-      </button>
+    <div className="app-container">
+      <h1 className="app-title">Spotify Client</h1>
+      {!profile ? (
+        <button className="login-button" onClick={handleLogin}>
+          Login with Spotify
+        </button>
+      ) : (
+        <ProfileCard profile={profile} />
+      )}
     </div>
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundColor: '#191414',
-    color: '#1DB954',
-    fontFamily: 'sans-serif',
-  },
-  button: {
-    marginTop: '20px',
-    padding: '10px 20px',
-    fontSize: '16px',
-    backgroundColor: '#1DB954',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '25px',
-    cursor: 'pointer',
-  },
-};
 
 export default App;

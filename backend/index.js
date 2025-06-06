@@ -20,7 +20,7 @@ app.get('/login', (req, res) => {
     client_id: process.env.CLIENT_ID,
     scope: scope,
     redirect_uri: process.env.REDIRECT_URI,
-    show_dialog : true,
+    show_dialog : true
   });
 
   const fullUrl = `https://accounts.spotify.com/authorize?${authQuery}`;
@@ -51,6 +51,7 @@ app.get("/callback", async (req, res) => {
 
     res.redirect(`${process.env.FRONTEND_URI}/?access_token=${access_token}`);
   } catch (error) {
+    console.error("Spotify token error:", error.response?.data || error.message);
     res.send("Error during authentication");
   }
 });
