@@ -10,9 +10,9 @@ const ProfileCard = ({ profile }) => {
         alt="Profile"
         className="profile-img"
       />
-      <h2>{profile.display_name || "Anonymus"}</h2>
-      <p>📧 {profile.email}</p>
-      <p>🌍 {profile.country}</p>
+      <h2>{profile?.display_name || "Anonymus"}</h2>
+      <p>📧 {profile?.email}</p>
+      <p>🌍 {profile?.country}</p>
     </div>
   );
 };

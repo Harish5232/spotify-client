@@ -10,24 +10,29 @@ function App() {
     window.location.href = "http://127.0.0.1:5000/login";
   };
 
-  useEffect(() => {
-    const token = new URLSearchParams(window.location.search).get("access_token");
-    console.log("Extracted Token:", token);
+ useEffect(() => {
+  console.log("🔍 useEffect triggered");
+  const token = new URLSearchParams(window.location.search).get("access_token");
+  console.log("🔑 Extracted Token:", token);
 
-    if (token) {
-      axios
-        .get("https://api.spotify.com/v1/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => {
-          console.log("Spotify Profile:", res.data);
-          setProfile(res.data);
-        })
-        .catch((err) => {
-          console.error("API Error:", err);
-        });
-    }
-  }, []);
+  if (token) {
+    axios
+      .get("https://api.spotify.com/v1/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        console.log("🎵 Spotify Profile:", res.data);
+        setProfile(res.data);
+      })
+      .catch((err) => {
+        console.error("🚨 API Error:", err);
+      });
+  } else {
+    console.warn("❌ No token in URL");
+  }
+}, []);
+
+
 
   return (
     <div className="app-container">
