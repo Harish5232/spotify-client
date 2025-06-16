@@ -130,3 +130,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.track-info {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 255, 90, 0.15);
+}
+

@@ -14,7 +14,7 @@ app.use(cors());
 const PORT = 5000;
 
 app.get('/login', (req, res) => {
-  const scope = 'user-read-private user-read-email';
+  const scope = 'user-read-private user-read-email user-read-playback-state';
   const authQuery = querystring.stringify({
     response_type: 'code',
     client_id: process.env.CLIENT_ID,
@@ -55,6 +55,46 @@ app.get("/callback", async (req, res) => {
     res.send("Error during authentication");
   }
 });
+
+app.get("/currently-playing", async (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ error: "Missing access token" });
+  }
+
+  const accessToken = authHeader.split(" ")[1];
+
+  try {
+    const response = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    // If no track is playing
+    if (response.status === 204 || response.data === "") {
+      return res.json({ isPlaying: false });
+    }
+
+    const item = response.data.item;
+    const track = {
+      isPlaying: response.data.is_playing,
+      name: item.name,
+      album: {
+        name: item.album.name,
+        image: item.album.images[0].url,
+      },
+      artists: item.artists.map((artist) => artist.name).join(", "),
+    };
+
+    res.json(track);
+  } catch (error) {
+    console.error("Error fetching currently playing track:", error.response?.data || error.message);
+    res.status(500).json({ error: "Failed to fetch currently playing track" });
+  }
+});
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Spotify Auth Server');

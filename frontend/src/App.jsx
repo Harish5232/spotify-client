@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProfileCard from "./components/ProfileCard";
+import CurrentlyPlaying from "./components/CurrentlyPlaying";
+
 import "./App.css";
 
 function App() {
@@ -38,11 +40,14 @@ function App() {
     <div className="app-container">
       <h1 className="app-title">Spotify Client</h1>
       {!profile ? (
-        <button className="login-button" onClick={handleLogin}>
-          Login with Spotify
-        </button>
+      <button className="login-button" onClick={handleLogin}>
+      Login with Spotify
+      </button>
       ) : (
+      <>
         <ProfileCard profile={profile} />
+        <CurrentlyPlaying accessToken={new URLSearchParams(window.location.search).get("access_token")} />
+      </>
       )}
     </div>
   );
