@@ -1,23 +1,73 @@
 # 🎧 Spotify Client (Work in Progress)
 
-This repository is for a custom **Spotify Client** application built using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). The goal is to create a sleek, user-friendly interface to explore, play, and manage Spotify content — including tracks, playlists, albums, and more.
+A custom **Spotify Client** built with the **Spotify Web API**, aiming to deliver a clean, responsive, and user-friendly interface to explore, play, and manage Spotify content — including tracks, playlists, albums, and more.
 
 ---
 
 ## 🚀 Project Status
 
-**Current Status:** ⛏️ Work in Progress
+**Current Status:** ⛏️ In Development
 
-This project is currently under active development. Core features like authentication and music playback are being implemented. Expect frequent changes and updates.
+The core features are currently being built. Basic **authentication via Spotify OAuth** is already implemented. Future updates will include:
+- Music playback
+- User playlists and recommendations
+- Search functionality
+- Album and artist details
+
+Expect frequent updates as development continues.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js 
-- **Backend:** Node.js with Express 
-- **Authentication:** OAuth 2.0 via Spotify Accounts Service
-- **API:** Spotify Web API
-  
+| Layer        | Technology                |
+|--------------|----------------------------|
+| **Frontend** | React.js (with Vite)       |
+| **Backend**  | Node.js with Express       |
+| **Auth**     | OAuth 2.0 (Spotify)        |
+| **API**      | Spotify Web API            |
+
+---
 
 
+## 📌 Features Implemented
+
+- ✅ Spotify Login using OAuth 2.0
+- ✅ User profile display
+- ⬜ Playback controls
+- ⬜ Browse playlists, albums
+- ⬜ Search functionality
+
+---
+
+## 🧠 Future Scope
+
+- Add playback queue and controls
+- Integrate personalized recommendations
+- Responsive UI for mobile and desktop
+- Dark/light theme toggle
+
+---
+
+## 📎 Setup Instructions
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/spotify-client.git
+   cd spotify-client
+
+2. Create a .env file with following :
+    CLIENT_ID=your_spotify_client_id
+    CLIENT_SECRET=your_spotify_secret
+    REDIRECT_URI=http://127.0.0.1:5000/callback
+    FRONTEND_URI=http://127.0.0.1:5173
+
+4. Start the backend server :
+    cd server
+    npm install
+    node index.js
+
+6. Start the frontend :
+   cd install
+   npm install
+   npm run dev
