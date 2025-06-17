@@ -57,13 +57,8 @@ app.get("/callback", async (req, res) => {
 });
 
 app.get("/currently-playing", async (req, res) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader) {
-    return res.status(401).json({ error: "Missing access token" });
-  }
-
-  const accessToken = authHeader.split(" ")[1];
+  const accessToken = req.headers.authorization?.split(" ")[1];
+  if (!accessToken) return res.status(401).json({ error: "No token provided" });
 
   try {
     const response = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
@@ -72,28 +67,26 @@ app.get("/currently-playing", async (req, res) => {
       },
     });
 
-    // If no track is playing
-    if (response.status === 204 || response.data === "") {
+    if (!response.data || !response.data.item) {
       return res.json({ isPlaying: false });
     }
 
-    const item = response.data.item;
-    const track = {
+    const track = response.data.item;
+
+    const trackData = {
+      trackName: track.name,
+      artists: track.artists.map((artist) => artist.name).join(", "),
+      albumArt: track.album?.images?.[0]?.url || null,
       isPlaying: response.data.is_playing,
-      name: item.name,
-      album: {
-        name: item.album.name,
-        image: item.album.images[0].url,
-      },
-      artists: item.artists.map((artist) => artist.name).join(", "),
     };
 
-    res.json(track);
+    res.json(trackData);
   } catch (error) {
-    console.error("Error fetching currently playing track:", error.response?.data || error.message);
+    console.error("Error fetching current track:", error.message);
     res.status(500).json({ error: "Failed to fetch currently playing track" });
   }
 });
+
 
 
 app.get('/', (req, res) => {

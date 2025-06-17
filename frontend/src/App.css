@@ -71,6 +71,8 @@
   box-shadow: 0 3px 8px rgba(93, 94, 93, 0.2);
 }
 
+
+
 /* Profile Image */
 .profile-img {
   width: 100px;
@@ -131,13 +133,75 @@
   color: #888;
 }
 
-.track-info {
-  background-color: #1e1e1e;
+/* 🎵 Now Playing Card */
+.now-playing-card {
+  background-color: #202020;
+  color: #ffffff;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(29, 185, 84, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   margin-top: 2rem;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 255, 90, 0.15);
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  text-align: left;
 }
+
+.album-art-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid #1db954;
+}
+
+.track-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px auto;
+  padding: 16px;
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  width: 500px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.track-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.track-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.track-artists {
+  font-size: 1rem;
+  margin-top: 6px;
+  color: #cccccc;
+}
+
 
