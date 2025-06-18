@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../App.css";
+import "./CurrentlyPlaying.css";
 
 function CurrentlyPlaying({ accessToken }) {
   const [track, setTrack] = useState(null);
@@ -16,6 +16,7 @@ function CurrentlyPlaying({ accessToken }) {
         });
 
         if (response.data.isPlaying) {
+          console.log("Current Playing response:",response.data);
           setTrack(response.data);
         } else {
           setTrack(null);
@@ -27,23 +28,26 @@ function CurrentlyPlaying({ accessToken }) {
       }
     };
 
-    if (accessToken) {
-      fetchCurrentTrack();
-    }
+    fetchCurrentTrack();
+    const interval = setInterval(fetchCurrentTrack, 5000); // fetch every 5 sec
+
+    
+    return () => clearInterval(interval);
   }, [accessToken]);
 
   if (loading) return <p className="loading">Loading current track...</p>;
   if (!track) return <p className="loading">Currently not playing anything.</p>;
 
   return (
-    <div className="track-card">
-      <img src={track.album.image} alt="Album Art" className="track-img" />
-      <div className="track-info">
-        <h3 className="track-name">{track.name}</h3>
-        <p className="track-artists">{track.artists}</p>
-      </div>
+  <div className="track-card">
+    <img src={track.albumArt} alt="Album Art" className="track-img" />
+    <div className="track-info">
+      <h3 className="track-name">{track.trackName}</h3>
+      <p className="track-artists">{track.artists}</p>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default CurrentlyPlaying;

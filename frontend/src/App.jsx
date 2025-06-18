@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProfileCard from "./components/ProfileCard";
 import CurrentlyPlaying from "./components/CurrentlyPlaying";
+import PlaybackControls from "./components/PlaybackControls";
 
 import "./App.css";
 
@@ -10,6 +11,9 @@ function App() {
 
   const handleLogin = () => {
     window.location.href = "http://127.0.0.1:5000/login";
+  };
+  const handleLogout = () => {
+    window.location.href = "/";
   };
 
  useEffect(() => {
@@ -37,20 +41,38 @@ function App() {
 
 
   return (
-    <div className="app-container">
-      <h1 className="app-title">Spotify Client</h1>
+  <div className="app-container">
+    <div className="top-bar">
+    <h1 className="app-title">Spotify Client</h1>
+    {profile && (
+    <button className="logout-button" onClick={handleLogout}>
+      Logout
+    </button>
+    )}
+    </div>
+
+
+    <div className="main-content">
       {!profile ? (
-      <button className="login-button" onClick={handleLogin}>
-      Login with Spotify
-      </button>
+        <button className="login-button" onClick={handleLogin}>
+          Login with Spotify
+        </button>
       ) : (
-      <>
-        <ProfileCard profile={profile} />
-        <CurrentlyPlaying accessToken={new URLSearchParams(window.location.search).get("access_token")} />
-      </>
+        <>
+          <ProfileCard profile={profile} />
+          <CurrentlyPlaying accessToken={new URLSearchParams(window.location.search).get("access_token")} />
+          {profile.product === "premium" ? (
+          <PlaybackControls accessToken={accessToken} />
+          ) : (
+          <p className="notice">🎧 Upgrade to Spotify Premium to control playback.</p>
+          )}
+        </>
       )}
     </div>
-  );
+  </div>
+);
+
+
 }
 
 export default App;

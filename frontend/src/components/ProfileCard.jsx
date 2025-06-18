@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css"; // Make sure this is imported or import separate CSS file
+import "./ProfileCard.css"; // Make sure this is imported or import separate CSS file
 import Avatar from "./avatar.jpg";
 
 const ProfileCard = ({ profile }) => {

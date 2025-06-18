@@ -1,0 +1,54 @@
+/* CurrentlyPlaying.css */
+
+.track-card {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+.track-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.track-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.track-artists {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .track-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .track-img {
+    margin: 0 0 12px 0;
+  }
+
+  .track-info {
+    align-items: center;
+  }
+}
