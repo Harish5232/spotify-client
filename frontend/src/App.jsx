@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   const [profile, setProfile] = useState(null);
+   const [accessToken, setAccessToken] = useState(null);
 
   const handleLogin = () => {
     window.location.href = "http://127.0.0.1:5000/login";
@@ -22,6 +23,7 @@ function App() {
   console.log("🔑 Extracted Token:", token);
 
   if (token) {
+    setAccessToken(token);
     axios
       .get("https://api.spotify.com/v1/me", {
         headers: { Authorization: `Bearer ${token}` },
@@ -60,7 +62,7 @@ function App() {
       ) : (
         <>
           <ProfileCard profile={profile} />
-          <CurrentlyPlaying accessToken={new URLSearchParams(window.location.search).get("access_token")} />
+          {accessToken && <CurrentlyPlaying accessToken={accessToken} />}
           {profile.product === "premium" ? (
           <PlaybackControls accessToken={accessToken} />
           ) : (

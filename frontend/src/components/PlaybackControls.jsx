@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const PlaybackControls = ({ accessToken }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-
+  
   const handlePlayPause = async () => {
     const res = await fetch("https://api.spotify.com/v1/me/player", {
       headers: {
