@@ -7,22 +7,22 @@
     <title>Spotify Client</title>
     <style>
       html, body {
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0;
         padding: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-color: #121212;
         color: white;
         font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        box-sizing: border-box;
       }
 
       #root {
-        width: 100%;
-        max-width: 1200px;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        min-width: 100vw;
+        /* Remove max-width */
       }
     </style>
   </head>

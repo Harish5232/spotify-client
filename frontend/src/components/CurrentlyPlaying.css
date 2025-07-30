@@ -37,6 +37,66 @@
   color: #ccc;
 }
 
+.recent-label {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: #333;
+  color: #1db954;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.controls-card {
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+  padding: 28px 32px 20px 32px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 260px;
+  max-width: 340px;
+}
+
+.controls-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1db954;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.controls-buttons {
+  display: flex;
+  gap: 32px;
+}
+
+.control-btn {
+  background: #282828;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.control-btn:hover {
+  background: #5a5a5a;
+  color: #fff;
+  transform: scale(1.08);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .track-card {

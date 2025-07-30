@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
-
+import "./PlaybackControls.css"
 const PlaybackControls = ({ accessToken }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
   const handlePlayPause = async () => {
     const res = await fetch("https://api.spotify.com/v1/me/player", {
       headers: {
@@ -51,10 +50,19 @@ const PlaybackControls = ({ accessToken }) => {
   };
 
   return (
-    <div className="controls">
-      <button onClick={handlePrevious}>⏮️</button>
-      <button onClick={handlePlayPause}>{isPlaying ? "⏸️" : "▶️"}</button>
-      <button onClick={handleNext}>⏭️</button>
+    <div className="controls-card">
+      
+      <div className="controls-buttons">
+        <button onClick={handlePrevious} className="control-btn">
+          ⏮️
+        </button>
+        <button onClick={handlePlayPause} className="control-btn">
+          {isPlaying ? "⏸️" : "▶️"}
+        </button>
+        <button onClick={handleNext} className="control-btn">
+          ⏭️
+        </button>
+      </div>
     </div>
   );
 };

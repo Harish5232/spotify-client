@@ -2,22 +2,30 @@
 
 /* Layout Structure */
 .app-container {
+  width: 100vw;
+  height: 100vh;
   min-height: 100vh;
-  background-color: #111;
-  color: white;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
+  background-color: #111;
+  color: white;
   font-family: 'Segoe UI', sans-serif;
 }
 
 /* Header */
 .top-bar {
-  width: 100%;
-  padding: 20px;
-  background-color: #1db954;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  /* This pushes logout to the right */
   align-items: center;
+  padding: 20px;
+  background-color: #5e5d58;
+  z-index: 100;
+  box-sizing: border-box;
 }
 
 .app-title {
@@ -53,7 +61,7 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  padding: 40px 20px 60px;
+  padding: 80px 20px 60px; /* Increased top padding for fixed header */
   width: 100%;
   box-sizing: border-box;
 }
@@ -62,30 +70,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-.top-bar {
-  display: flex;
-  justify-content: space-between;  /* This pushes logout to the right */
-  align-items: center;
-  padding: 20px;
-  background-color: #5e5d58;
-  width: 100%;
-}
-
-.app-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.logout-button {
-  padding: 8px 16px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 .notice {
