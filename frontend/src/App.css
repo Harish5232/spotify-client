@@ -1,16 +1,25 @@
 /* App.css */
 
 /* Layout Structure */
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 .app-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   background-color: #111;
   color: white;
   font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent both scrolls */
 }
 
 /* Header */
@@ -18,11 +27,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  height: 60px; /* Set a fixed height */
   display: flex;
-  justify-content: space-between;  /* This pushes logout to the right */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 0 20px;
   background-color: #5e5d58;
   z-index: 100;
   box-sizing: border-box;
@@ -57,13 +67,15 @@
 
 /* Main Content */
 .main-content {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  padding: 80px 20px 60px; /* Increased top padding for fixed header */
+  align-items: flex-start;
+  gap: 24px;
+  padding: 60px 4vw 0 4vw; /* Top padding matches .top-bar height */
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .left-controls {
@@ -80,6 +92,131 @@
   color:white;
   text-align: center;
   border-radius: 16px;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* This aligns tops */
+  width: 100%;
+  gap: 40px;
+  min-height: 0;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.side-blocks {
+  min-width: 320px;
+  max-width: 340px;
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.search-results {
+  flex: 1 1 0;
+  max-height: 70vh;           /* Or calc(100vh - header/footer height) */
+  overflow-y: auto;           /* Enable vertical scroll */
+  overflow-x: hidden;
+  padding: 24px 24px 24px 32px; /* top, right, bottom, left */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;              /* Prevent overflow */
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+}
+
+.search-results::-webkit-scrollbar {
+  display: none;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #181818;
+  padding: 16px 24px 24px 24px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 100%;              /* Prevent overflow */
+  box-sizing: border-box;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin: 24px 0 24px 0;
+  width: 100%;
+  box-sizing: border-box;
+  align-self: stretch;
+}
+
+.search-bar input {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.search-bar button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  background: #1db954;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-bar button:hover {
+  background: #17a74a;
+}
+
+.side-blocks {
+  min-width: 320px;
+  max-width: 340px;
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.side-blocks.shift-left {
+  transform: translateX(0); /* No extra shift needed if you want perfect alignment */
+}
+
+.profile-card,
+.track-card,
+.controls-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
 }
 
 

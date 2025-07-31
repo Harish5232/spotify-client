@@ -3,12 +3,15 @@ import axios from "axios";
 import ProfileCard from "./components/ProfileCard";
 import CurrentlyPlaying from "./components/CurrentlyPlaying";
 import PlaybackControls from "./components/PlaybackControls";
+import SearchBar from "./components/SearchBar";
 
 import "./App.css";
 
 function App() {
   const [profile, setProfile] = useState(null);
    const [accessToken, setAccessToken] = useState(null);
+   const [searchResults, setSearchResults] = useState([]);
+   const [searchFocused, setSearchFocused] = useState(false);
 
   const handleLogin = () => {
     window.location.href = "http://127.0.0.1:5000/login";
@@ -55,20 +58,44 @@ function App() {
 
 
     <div className="main-content">
-      {!profile ? (
+      {profile && (
+        <>
+          <SearchBar
+            accessToken={accessToken}
+            onResults={setSearchResults}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
+          />
+          <div className="content-row">
+            <div className="side-blocks">
+              <ProfileCard profile={profile} />
+              {accessToken && <CurrentlyPlaying accessToken={accessToken} />}
+              {profile.product === "premium" ? (
+                <PlaybackControls accessToken={accessToken} />
+              ) : (
+                <p className="notice">🎧 Upgrade to Spotify Premium to control playback.</p>
+              )}
+            </div>
+            <div className="search-results">
+              {searchResults.map((track) => (
+                <div key={track.id} className="search-result-item">
+                  <img src={track.album.images[2]?.url} alt="" width={40} />
+                  <div>
+                    <div>{track.name}</div>
+                    <div style={{ fontSize: "0.9em", color: "#aaa" }}>
+                      {track.artists.map(a => a.name).join(", ")}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+      {!profile && (
         <button className="login-button" onClick={handleLogin}>
           Login with Spotify
         </button>
-      ) : (
-        <>
-          <ProfileCard profile={profile} />
-          {accessToken && <CurrentlyPlaying accessToken={accessToken} />}
-          {profile.product === "premium" ? (
-          <PlaybackControls accessToken={accessToken} />
-          ) : (
-          <p className="notice">🎧 Upgrade to Spotify Premium to control playback.</p>
-          )}
-        </>
       )}
     </div>
   </div>
