@@ -76,6 +76,14 @@ html, body {
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  transition: justify-content 0.6s cubic-bezier(0.77, 0, 0.175, 1), align-items 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content.left-aligned {
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .left-controls {
@@ -147,7 +155,12 @@ html, body {
   width: 100%;
   max-width: 100%;              /* Prevent overflow */
   box-sizing: border-box;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 2px 16px 0 rgba(69, 68, 68, 0.1);
+}
+
+.search-result-item:hover {
+  background: #282828;
+  cursor: pointer;
 }
 
 /* Search Bar */

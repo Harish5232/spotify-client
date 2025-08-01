@@ -12,6 +12,7 @@
 }
 
 
+
 .controls-buttons {
   display: flex;
   gap: 32px;
@@ -23,14 +24,14 @@
   background: transparent;
   border: none;
   border-radius: 50%;
-  color: #fff;
+  /* color: #555353; */
   font-size: 2rem;
   width: 54px;
   height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.4s, transform 0.4s;
+  transition: transform 0.4s;
   cursor: pointer;
   box-shadow: none;
 }
@@ -38,4 +39,5 @@
 .control-btn:hover {
   color: #4b4d4c;
   background: transparent;
+  border-color: #181818;
 }
