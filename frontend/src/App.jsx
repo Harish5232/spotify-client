@@ -4,6 +4,7 @@ import ProfileCard from "./components/ProfileCard";
 import CurrentlyPlaying from "./components/CurrentlyPlaying";
 import PlaybackControls from "./components/PlaybackControls";
 import SearchBar from "./components/SearchBar";
+import.meta.env.VITE_API_URL;
 
 import "./App.css";
 
@@ -14,7 +15,7 @@ function App() {
   const [searchFocused, setSearchFocused] = useState(false);
 
   const handleLogin = () => {
-    window.location.href = "http://127.0.0.1:5000/login";
+    window.location.href = "${import.meta.env.VITE_API_URL}/login";
   };
   const handleLogout = () => {
     window.location.href = "/";
