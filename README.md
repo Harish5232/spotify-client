@@ -34,15 +34,14 @@ Expect frequent updates as development continues.
 
 - ✅ Spotify Login using OAuth 2.0
 - ✅ User profile display
-- ⬜ Playback controls
-- ⬜ Browse playlists, albums
-- ⬜ Search functionality
+- ✅ Playback controls
+- ✅ Search functionality
 
 ---
 
 ## 🧠 Future Scope
 
-- Add playback queue and controls
+- Add playback queue 
 - Integrate personalized recommendations
 - Responsive UI for mobile and desktop
 - Dark/light theme toggle
@@ -61,6 +60,7 @@ Expect frequent updates as development continues.
     CLIENT_SECRET=your_spotify_secret
     REDIRECT_URI=http://127.0.0.1:5000/callback
     FRONTEND_URI=http://127.0.0.1:5173
+    To run on your localhost
 
 4. Start the backend server :
     cd server
