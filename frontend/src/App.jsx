@@ -4,7 +4,7 @@ import ProfileCard from "./components/ProfileCard";
 import CurrentlyPlaying from "./components/CurrentlyPlaying";
 import PlaybackControls from "./components/PlaybackControls";
 import SearchBar from "./components/SearchBar";
-import.meta.env.VITE_API_URL;
+
 
 import "./App.css";
 
