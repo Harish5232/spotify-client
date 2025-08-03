@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CurrentlyPlaying.css";
+import.meta.env.VITE_API_URL;
 
 function CurrentlyPlaying({ accessToken }) {
   const [track, setTrack] = useState(null);
@@ -11,7 +12,7 @@ function CurrentlyPlaying({ accessToken }) {
   const fetchCurrentTrack = async () => {
     setLoading(true); 
     try {
-      const response = await axios.get("http://127.0.0.1:5000/currently-playing", {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/currently-playing`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

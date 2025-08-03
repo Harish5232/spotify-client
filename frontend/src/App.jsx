@@ -15,8 +15,8 @@ function App() {
   const [searchFocused, setSearchFocused] = useState(false);
 
   const handleLogin = () => {
-    window.location.href = "${import.meta.env.VITE_API_URL}/login";
-  };
+    window.location.href = `${import.meta.env.VITE_API_URL}/login`;
+};
   const handleLogout = () => {
     window.location.href = "/";
   };
