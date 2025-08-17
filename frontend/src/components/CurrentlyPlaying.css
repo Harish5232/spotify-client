@@ -9,11 +9,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 400px;
   width: 100%;
+  box-sizing: border-box;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .track-card:hover {
   background: #282828;
   cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .track-img {
@@ -22,6 +25,11 @@
   object-fit: cover;
   border-radius: 8px;
   margin-right: 16px;
+  transition: transform 0.2s;
+}
+
+.track-card:hover .track-img {
+  transform: scale(1.05);
 }
 
 .track-info {
@@ -29,17 +37,25 @@
   flex-direction: column;
   justify-content: center;
   color: #fff;
+  flex: 1;
+  min-width: 0;
 }
 
 .track-name {
   font-weight: bold;
   font-size: 1.1rem;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .track-artists {
   font-size: 0.95rem;
   color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recent-label {
@@ -65,6 +81,13 @@
   align-items: center;
   min-width: 260px;
   max-width: 340px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.controls-card:hover {
+  transform: translateY(-2px);
 }
 
 .controls-title {
@@ -73,11 +96,15 @@
   color: #1db954;
   margin-bottom: 18px;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .controls-buttons {
   display: flex;
   gap: 32px;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .control-btn {
@@ -94,6 +121,7 @@
   transition: background 0.2s, transform 0.2s;
   cursor: pointer;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
 }
 
 .control-btn:hover {
@@ -102,18 +130,283 @@
   transform: scale(1.08);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+.control-btn:active {
+  transform: scale(1.05);
+}
+
+/* Enhanced Responsive Design */
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
   .track-card {
     flex-direction: column;
     text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    max-width: 100%;
   }
 
   .track-img {
     margin: 0 0 12px 0;
+    width: 70px;
+    height: 70px;
   }
 
   .track-info {
     align-items: center;
+    text-align: center;
+  }
+  
+  .track-name {
+    font-size: 1rem;
+  }
+  
+  .track-artists {
+    font-size: 0.9rem;
+  }
+  
+  .recent-label {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+  }
+
+  .controls-card {
+    padding: 20px 16px 16px 16px;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    margin-top: 8px;
+  }
+  
+  .controls-title {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .controls-buttons {
+    gap: 24px;
+  }
+  
+  .control-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .track-card {
+    padding: 14px;
+    max-width: 350px;
+  }
+  
+  .track-img {
+    width: 75px;
+    height: 75px;
+    margin-right: 14px;
+  }
+  
+  .track-name {
+    font-size: 1.05rem;
+  }
+  
+  .controls-card {
+    padding: 24px 24px 18px 24px;
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .controls-buttons {
+    gap: 28px;
+  }
+  
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.9rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .track-card {
+    padding: 15px;
+    max-width: 380px;
+  }
+  
+  .track-img {
+    width: 78px;
+    height: 78px;
+    margin-right: 15px;
+  }
+  
+  .controls-card {
+    padding: 26px 28px 19px 28px;
+    min-width: 300px;
+    max-width: 330px;
+  }
+  
+  .controls-buttons {
+    gap: 30px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .track-card {
+    padding: 16px;
+    max-width: 400px;
+  }
+  
+  .track-img {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+  }
+  
+  .controls-card {
+    padding: 28px 32px 20px 32px;
+    min-width: 260px;
+    max-width: 340px;
+  }
+  
+  .controls-buttons {
+    gap: 32px;
+  }
+  
+  .control-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 2rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .track-card {
+    padding: 18px;
+    max-width: 420px;
+  }
+  
+  .track-img {
+    width: 85px;
+    height: 85px;
+    margin-right: 18px;
+  }
+  
+  .controls-card {
+    padding: 30px 36px 22px 36px;
+    min-width: 280px;
+    max-width: 360px;
+  }
+  
+  .controls-buttons {
+    gap: 36px;
+  }
+  
+  .control-btn {
+    width: 58px;
+    height: 58px;
+    font-size: 2.2rem;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .track-card {
+    flex-direction: row;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .track-img {
+    margin: 0 12px 0 0;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .track-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .controls-card {
+    padding: 16px 20px 12px 20px;
+    margin-top: 6px;
+  }
+  
+  .controls-buttons {
+    gap: 20px;
+  }
+  
+  .control-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .track-card,
+  .controls-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .track-card,
+  .track-img,
+  .controls-card,
+  .control-btn {
+    transition: none;
+    transform: none;
+  }
+  
+  .track-card:hover,
+  .controls-card:hover {
+    transform: none;
+  }
+  
+  .track-card:hover .track-img {
+    transform: none;
+  }
+  
+  .control-btn:hover {
+    transform: none;
+  }
+  
+  .control-btn:active {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .track-card:focus-visible,
+  .control-btn:focus-visible {
+    outline: 2px solid #1db954;
+    outline-offset: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .track-card,
+  .controls-card {
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .track-img {
+    border: 1px solid #000;
+  }
+  
+  .control-btn {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
   }
 }

@@ -54,6 +54,75 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Responsive Design */
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+  body {
+    min-width: 280px;
+    padding: 0 10px;
+  }
+  
+  h1 {
+    font-size: 2.2em;
+    line-height: 1.2;
+  }
+  
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    min-width: 300px;
+    padding: 0 15px;
+  }
+  
+  h1 {
+    font-size: 2.6em;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    min-width: 320px;
+    padding: 0 20px;
+  }
+  
+  h1 {
+    font-size: 2.8em;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    min-width: 320px;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  button {
+    border-width: 1.5px;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +133,22 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    min-width: auto;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  button {
+    background-color: transparent;
+    border: 1px solid #000;
   }
 }

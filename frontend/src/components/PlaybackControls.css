@@ -9,15 +9,21 @@
   align-items: center;
   min-width: 260px;
   max-width: 340px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s;
 }
 
-
+.controls-card:hover {
+  transform: translateY(-2px);
+}
 
 .controls-buttons {
   display: flex;
   gap: 32px;
   justify-content: center; /* Center buttons horizontally */
-   width: 100%;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .control-btn {
@@ -31,13 +37,216 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s;
+  transition: transform 0.4s, background-color 0.2s;
   cursor: pointer;
   box-shadow: none;
+  flex-shrink: 0;
 }
 
 .control-btn:hover {
   color: #4b4d4c;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border-color: #181818;
+  transform: scale(1.1);
+}
+
+.control-btn:active {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+  .controls-card {
+    padding: 20px 16px 16px 16px;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    margin-top: 8px;
+  }
+  
+  .controls-buttons {
+    gap: 20px;
+  }
+  
+  .control-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .controls-card {
+    padding: 24px 24px 18px 24px;
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .controls-buttons {
+    gap: 24px;
+  }
+  
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.9rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .controls-card {
+    padding: 26px 28px 19px 28px;
+    min-width: 300px;
+    max-width: 330px;
+  }
+  
+  .controls-buttons {
+    gap: 28px;
+  }
+  
+  .control-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.95rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .controls-card {
+    padding: 28px 32px 20px 32px;
+    min-width: 260px;
+    max-width: 340px;
+  }
+  
+  .controls-buttons {
+    gap: 32px;
+  }
+  
+  .control-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 2rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .controls-card {
+    padding: 30px 36px 22px 36px;
+    min-width: 280px;
+    max-width: 360px;
+  }
+  
+  .controls-buttons {
+    gap: 36px;
+  }
+  
+  .control-btn {
+    width: 58px;
+    height: 58px;
+    font-size: 2.2rem;
+  }
+}
+
+/* Ultra wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .controls-card {
+    padding: 32px 40px 24px 40px;
+    min-width: 300px;
+    max-width: 380px;
+  }
+  
+  .controls-buttons {
+    gap: 40px;
+  }
+  
+  .control-btn {
+    width: 62px;
+    height: 62px;
+    font-size: 2.4rem;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .controls-card {
+    padding: 16px 20px 12px 20px;
+    margin-top: 6px;
+  }
+  
+  .controls-buttons {
+    gap: 16px;
+  }
+  
+  .control-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .controls-card {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .controls-card,
+  .control-btn {
+    transition: none;
+    transform: none;
+  }
+  
+  .controls-card:hover {
+    transform: none;
+  }
+  
+  .control-btn:hover,
+  .control-btn:active {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .control-btn:focus-visible {
+    outline: 2px solid #1db954;
+    outline-offset: 2px;
+    background: rgba(29, 185, 84, 0.1);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .control-btn {
+    min-height: 44px; /* iOS minimum touch target */
+    min-width: 44px;
+  }
+  
+  .control-btn:hover {
+    background: transparent;
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .controls-card {
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .control-btn {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+  }
 }

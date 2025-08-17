@@ -4,6 +4,8 @@
   gap: 10px;
   margin: 24px 0;
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-bar input {
@@ -14,6 +16,14 @@
   color: #fff;
   font-size: 1rem;
   width: 240px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #1db954;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2);
 }
 
 .search-bar button {
@@ -24,9 +34,141 @@
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .search-bar button:hover {
   background: #17a74a;
+  transform: translateY(-1px);
+}
+
+.search-bar button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+    padding: 0 16px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 10px;
+  }
+  
+  .search-bar button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .search-bar {
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+  
+  .search-bar input {
+    width: 200px;
+    padding: 10px 14px;
+  }
+  
+  .search-bar button {
+    padding: 10px 16px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .search-bar {
+    margin: 22px 0;
+  }
+  
+  .search-bar input {
+    width: 220px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .search-bar input {
+    width: 240px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .search-bar input {
+    width: 280px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .search-bar {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .search-bar input {
+    width: 180px;
+  }
+  
+  .search-bar button {
+    width: auto;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .search-bar input {
+    border-width: 1.5px;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .search-bar button {
+    transition: none;
+    transform: none;
+  }
+  
+  .search-bar button:hover {
+    transform: none;
+  }
+  
+  .search-bar button:active {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .search-bar button:focus-visible {
+    outline: 2px solid #1db954;
+    outline-offset: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .search-bar {
+    display: none;
+  }
 }
