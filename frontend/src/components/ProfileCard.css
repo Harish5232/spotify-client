@@ -2,12 +2,12 @@
 
 .profile-card {
   background-color: #1e1e1e;
-  margin-top: 40px;
-  padding: 20px;
-  border-radius: 16px;
+  margin-top: 20px; /* Reduced from 40px */
+  padding: 16px; /* Reduced from 20px */
+  border-radius: 14px; /* Reduced from 16px */
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 400px;
+  max-width: 320px; /* Reduced from 400px */
   width: 100%;
   box-sizing: border-box;
   transition: background 0.2s, transform 0.2s;
@@ -20,12 +20,12 @@
 }
 
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 80px; /* Reduced from 120px */
+  height: 80px; /* Reduced from 120px */
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #01ff5a;
-  margin-bottom: 16px;
+  border: 2px solid #01ff5a; /* Reduced from 3px */
+  margin-bottom: 12px; /* Reduced from 16px */
   transition: transform 0.2s;
 }
 
@@ -37,91 +37,91 @@
 /* Extra Small devices (phones, 576px and down) */
 @media (max-width: 575.98px) {
   .profile-card {
-    margin-top: 20px;
-    padding: 16px;
-    border-radius: 12px;
+    margin-top: 16px; /* Reduced from 20px */
+    padding: 12px; /* Reduced from 16px */
+    border-radius: 10px; /* Reduced from 12px */
     max-width: 100%;
   }
   
   .profile-img {
-    width: 80px;
-    height: 80px;
+    width: 60px; /* Reduced from 80px */
+    height: 60px; /* Reduced from 80px */
     border-width: 2px;
-    margin-bottom: 12px;
+    margin-bottom: 10px; /* Reduced from 12px */
   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .profile-card {
-    margin-top: 30px;
-    padding: 18px;
-    max-width: 350px;
+    margin-top: 18px; /* Reduced from 30px */
+    padding: 14px; /* Reduced from 18px */
+    max-width: 280px; /* Reduced from 350px */
   }
   
   .profile-img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 14px;
+    width: 70px; /* Reduced from 100px */
+    height: 70px; /* Reduced from 100px */
+    margin-bottom: 12px; /* Reduced from 14px */
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .profile-card {
-    margin-top: 35px;
-    padding: 20px;
-    max-width: 380px;
+    margin-top: 20px; /* Reduced from 35px */
+    padding: 16px; /* Reduced from 20px */
+    max-width: 300px; /* Reduced from 380px */
   }
   
   .profile-img {
-    width: 110px;
-    height: 110px;
-    margin-bottom: 15px;
+    width: 75px; /* Reduced from 110px */
+    height: 75px; /* Reduced from 110px */
+    margin-bottom: 12px; /* Reduced from 15px */
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .profile-card {
-    margin-top: 40px;
-    padding: 20px;
-    max-width: 400px;
+    margin-top: 20px; /* Reduced from 40px */
+    padding: 16px; /* Reduced from 20px */
+    max-width: 320px; /* Reduced from 400px */
   }
   
   .profile-img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 16px;
+    width: 80px; /* Reduced from 120px */
+    height: 80px; /* Reduced from 120px */
+    margin-bottom: 12px; /* Reduced from 16px */
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .profile-card {
-    margin-top: 45px;
-    padding: 24px;
-    max-width: 420px;
+    margin-top: 22px; /* Reduced from 45px */
+    padding: 18px; /* Reduced from 24px */
+    max-width: 340px; /* Reduced from 420px */
   }
   
   .profile-img {
-    width: 130px;
-    height: 130px;
-    margin-bottom: 18px;
+    width: 85px; /* Reduced from 130px */
+    height: 85px; /* Reduced from 130px */
+    margin-bottom: 14px; /* Reduced from 18px */
   }
 }
 
 /* Landscape orientation adjustments for mobile */
 @media (max-width: 767.98px) and (orientation: landscape) {
   .profile-card {
-    margin-top: 15px;
-    padding: 14px;
+    margin-top: 12px; /* Reduced from 15px */
+    padding: 10px; /* Reduced from 14px */
   }
   
   .profile-img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
+    width: 50px; /* Reduced from 70px */
+    height: 50px; /* Reduced from 70px */
+    margin-bottom: 8px; /* Reduced from 10px */
   }
 }
 
@@ -132,7 +132,7 @@
   }
   
   .profile-img {
-    border-width: 2.5px;
+    border-width: 2px; /* Reduced from 2.5px */
   }
 }
 
@@ -167,7 +167,7 @@
     background-color: transparent;
     box-shadow: none;
     border: 1px solid #000;
-    margin-top: 20px;
+    margin-top: 16px; /* Reduced from 20px */
   }
   
   .profile-img {

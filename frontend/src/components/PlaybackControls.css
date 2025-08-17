@@ -1,14 +1,14 @@
 .controls-card {
   background: #181818;
-  border-radius: 18px;
+  border-radius: 16px; /* Reduced from 18px */
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
-  padding: 28px 32px 20px 32px;
-  margin-top: 10px;
+  padding: 20px 24px 16px 24px; /* Reduced from 28px 32px 20px 32px */
+  margin-top: 8px; /* Reduced from 10px */
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 260px;
-  max-width: 340px;
+  min-width: 240px; /* Reduced from 260px */
+  max-width: 300px; /* Reduced from 340px */
   width: 100%;
   box-sizing: border-box;
   transition: transform 0.2s;
@@ -20,30 +20,30 @@
 
 .controls-buttons {
   display: flex;
-  gap: 32px;
+  gap: 24px; /* Reduced from 32px */
   justify-content: center; /* Center buttons horizontally */
   width: 100%;
   flex-wrap: nowrap; /* Prevent buttons from wrapping to new line */
   overflow-x: auto; /* Allow horizontal scroll if buttons overflow */
   overflow-y: hidden; /* Prevent vertical scroll */
-  padding-bottom: 8px; /* Space for potential scrollbar */
+  padding-bottom: 6px; /* Reduced from 8px */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #333 #181818; /* Firefox scrollbar colors */
 }
 
 /* Custom scrollbar for webkit browsers */
 .controls-buttons::-webkit-scrollbar {
-  height: 6px;
+  height: 4px; /* Reduced from 6px */
 }
 
 .controls-buttons::-webkit-scrollbar-track {
   background: #181818;
-  border-radius: 3px;
+  border-radius: 2px; /* Reduced from 3px */
 }
 
 .controls-buttons::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 3px;
+  border-radius: 2px; /* Reduced from 3px */
 }
 
 .controls-buttons::-webkit-scrollbar-thumb:hover {
@@ -55,9 +55,9 @@
   border: none;
   border-radius: 50%;
   /* color: #555353; */
-  font-size: 2rem;
-  width: 54px;
-  height: 54px;
+  font-size: 1.6rem; /* Reduced from 2rem */
+  width: 44px; /* Reduced from 54px */
+  height: 44px; /* Reduced from 54px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +65,7 @@
   cursor: pointer;
   box-shadow: none;
   flex-shrink: 0; /* Prevent buttons from shrinking */
-  min-width: 54px; /* Ensure minimum width */
+  min-width: 44px; /* Reduced from 54px */
 }
 
 .control-btn:hover {
@@ -83,148 +83,148 @@
 /* Extra Small devices (phones, 576px and down) */
 @media (max-width: 575.98px) {
   .controls-card {
-    padding: 20px 16px 16px 16px;
+    padding: 16px 12px 12px 12px; /* Reduced from 20px 16px 16px 16px */
     min-width: 100%;
     max-width: 100%;
-    border-radius: 16px;
-    margin-top: 8px;
+    border-radius: 14px; /* Reduced from 16px */
+    margin-top: 6px; /* Reduced from 8px */
   }
   
   .controls-buttons {
-    gap: 16px; /* Reduce gap for smaller screens */
-    padding-bottom: 6px;
+    gap: 12px; /* Reduced from 16px */
+    padding-bottom: 4px; /* Reduced from 6px */
   }
   
   .control-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 1.8rem;
-    min-width: 48px;
+    width: 40px; /* Reduced from 48px */
+    height: 40px; /* Reduced from 48px */
+    font-size: 1.4rem; /* Reduced from 1.8rem */
+    min-width: 40px; /* Reduced from 48px */
   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .controls-card {
-    padding: 24px 24px 18px 24px;
-    min-width: 280px;
-    max-width: 320px;
+    padding: 18px 20px 14px 20px; /* Reduced from 24px 24px 18px 24px */
+    min-width: 260px; /* Reduced from 280px */
+    max-width: 280px; /* Reduced from 320px */
   }
   
   .controls-buttons {
-    gap: 20px;
-    padding-bottom: 6px;
+    gap: 18px; /* Reduced from 20px */
+    padding-bottom: 5px; /* Reduced from 6px */
   }
   
   .control-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.9rem;
-    min-width: 50px;
+    width: 42px; /* Reduced from 50px */
+    height: 42px; /* Reduced from 50px */
+    font-size: 1.5rem; /* Reduced from 1.9rem */
+    min-width: 42px; /* Reduced from 50px */
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .controls-card {
-    padding: 26px 28px 19px 28px;
-    min-width: 300px;
-    max-width: 330px;
+    padding: 19px 22px 15px 22px; /* Reduced from 26px 28px 19px 28px */
+    min-width: 270px; /* Reduced from 300px */
+    max-width: 290px; /* Reduced from 330px */
   }
   
   .controls-buttons {
-    gap: 24px;
-    padding-bottom: 6px;
+    gap: 20px; /* Reduced from 24px */
+    padding-bottom: 5px; /* Reduced from 6px */
   }
   
   .control-btn {
-    width: 52px;
-    height: 52px;
-    font-size: 1.95rem;
-    min-width: 52px;
+    width: 43px; /* Reduced from 52px */
+    height: 43px; /* Reduced from 52px */
+    font-size: 1.55rem; /* Reduced from 1.95rem */
+    min-width: 43px; /* Reduced from 52px */
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .controls-card {
-    padding: 28px 32px 20px 32px;
-    min-width: 260px;
-    max-width: 340px;
+    padding: 20px 24px 16px 24px; /* Reduced from 28px 32px 20px 32px */
+    min-width: 240px; /* Reduced from 260px */
+    max-width: 300px; /* Reduced from 340px */
   }
   
   .controls-buttons {
-    gap: 32px;
-    padding-bottom: 8px;
+    gap: 24px; /* Reduced from 32px */
+    padding-bottom: 6px; /* Reduced from 8px */
   }
   
   .control-btn {
-    width: 54px;
-    height: 54px;
-    font-size: 2rem;
-    min-width: 54px;
+    width: 44px; /* Reduced from 54px */
+    height: 44px; /* Reduced from 54px */
+    font-size: 1.6rem; /* Reduced from 2rem */
+    min-width: 44px; /* Reduced from 54px */
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .controls-card {
-    padding: 30px 36px 22px 36px;
-    min-width: 280px;
-    max-width: 360px;
+    padding: 22px 26px 18px 26px; /* Reduced from 30px 36px 22px 36px */
+    min-width: 260px; /* Reduced from 280px */
+    max-width: 320px; /* Reduced from 360px */
   }
   
   .controls-buttons {
-    gap: 36px;
-    padding-bottom: 8px;
+    gap: 26px; /* Reduced from 36px */
+    padding-bottom: 6px; /* Reduced from 8px */
   }
   
   .control-btn {
-    width: 58px;
-    height: 58px;
-    font-size: 2.2rem;
-    min-width: 58px;
+    width: 46px; /* Reduced from 58px */
+    height: 46px; /* Reduced from 58px */
+    font-size: 1.7rem; /* Reduced from 2.2rem */
+    min-width: 46px; /* Reduced from 58px */
   }
 }
 
 /* Ultra wide screens (1400px and up) */
 @media (min-width: 1400px) {
   .controls-card {
-    padding: 32px 40px 24px 40px;
-    min-width: 300px;
-    max-width: 380px;
+    padding: 24px 28px 20px 28px; /* Reduced from 32px 40px 24px 40px */
+    min-width: 280px; /* Reduced from 300px */
+    max-width: 340px; /* Reduced from 380px */
   }
   
   .controls-buttons {
-    gap: 40px;
-    padding-bottom: 8px;
+    gap: 28px; /* Reduced from 40px */
+    padding-bottom: 6px; /* Reduced from 8px */
   }
   
   .control-btn {
-    width: 62px;
-    height: 62px;
-    font-size: 2.4rem;
-    min-width: 62px;
+    width: 48px; /* Reduced from 62px */
+    height: 48px; /* Reduced from 62px */
+    font-size: 1.8rem; /* Reduced from 2.4rem */
+    min-width: 48px; /* Reduced from 62px */
   }
 }
 
 /* Landscape orientation adjustments for mobile */
 @media (max-width: 767.98px) and (orientation: landscape) {
   .controls-card {
-    padding: 16px 20px 12px 20px;
-    margin-top: 6px;
+    padding: 12px 16px 8px 16px; /* Reduced from 16px 20px 12px 20px */
+    margin-top: 4px; /* Reduced from 6px */
   }
   
   .controls-buttons {
-    gap: 14px;
-    padding-bottom: 4px;
+    gap: 12px; /* Reduced from 16px */
+    padding-bottom: 3px; /* Reduced from 4px */
   }
   
   .control-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 1.6rem;
-    min-width: 44px;
+    width: 38px; /* Reduced from 44px */
+    height: 38px; /* Reduced from 44px */
+    font-size: 1.3rem; /* Reduced from 1.6rem */
+    min-width: 38px; /* Reduced from 44px */
   }
 }
 
