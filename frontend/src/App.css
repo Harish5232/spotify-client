@@ -77,8 +77,8 @@ html, body {
   box-sizing: border-box;
   overflow: hidden;
   transition: justify-content 0.6s cubic-bezier(0.77, 0, 0.175, 1), align-items 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  align-items: flex-start; /* Changed from center to flex-start */
 }
 
 .main-content.left-aligned {
@@ -127,7 +127,7 @@ html, body {
 
 .search-results {
   flex: 1 1 0;
-  max-height: 70vh;           /* Or calc(100vh - header/footer height) */
+  max-height: calc(100vh - 200px); /* Adjusted height to account for search bar */
   overflow-y: auto;           /* Enable vertical scroll */
   overflow-x: hidden;
   padding: 24px 24px 24px 32px; /* top, right, bottom, left */
@@ -138,11 +138,27 @@ html, body {
   width: 100%;
   max-width: 100%;              /* Prevent overflow */
   box-sizing: border-box;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #333 #111; /* Firefox scrollbar colors */
 }
 
+/* Custom scrollbar for webkit browsers */
 .search-results::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 4px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .search-result-item {
@@ -163,14 +179,19 @@ html, body {
   cursor: pointer;
 }
 
-/* Search Bar */
+/* Search Bar - Fixed at top of content */
 .search-bar {
   display: flex;
   gap: 10px;
-  margin: 24px 0 24px 0;
+  margin: 0 0 24px 0; /* Reduced top margin since it's now at the top */
   width: 100%;
   box-sizing: border-box;
   align-self: stretch;
+  position: sticky; /* Make search bar sticky */
+  top: 0;
+  background-color: #111; /* Match main content background */
+  padding: 16px 0;
+  z-index: 10;
 }
 
 .search-bar input {
@@ -263,7 +284,7 @@ html, body {
   .search-results {
     order: 1;
     padding: 16px 16px 16px 16px;
-    max-height: 60vh;
+    max-height: calc(100vh - 180px); /* Adjusted for mobile */
   }
   
   .search-result-item {
@@ -272,8 +293,13 @@ html, body {
   }
   
   .search-bar {
-    margin: 16px 0 16px 0;
+    margin: 0 0 16px 0;
     gap: 8px;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    z-index: 10;
   }
   
   .search-bar input {
@@ -316,6 +342,14 @@ html, body {
   
   .search-results {
     padding: 20px 20px 20px 24px;
+    max-height: calc(100vh - 190px);
+  }
+  
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    z-index: 10;
   }
 }
 
@@ -335,6 +369,17 @@ html, body {
     max-width: 320px;
     width: 320px;
   }
+  
+  .search-results {
+    max-height: calc(100vh - 200px);
+  }
+  
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    z-index: 10;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -342,6 +387,17 @@ html, body {
   .main-content {
     padding-left: 4vw;
     padding-right: 4vw;
+  }
+  
+  .search-results {
+    max-height: calc(100vh - 200px);
+  }
+  
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    z-index: 10;
   }
 }
 
@@ -360,6 +416,17 @@ html, body {
     min-width: 340px;
     max-width: 360px;
     width: 360px;
+  }
+  
+  .search-results {
+    max-height: calc(100vh - 200px);
+  }
+  
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    z-index: 10;
   }
 }
 
