@@ -1,23 +1,8 @@
-# 🎧 Spotify Client (Work in Progress)
+# 🎧 Spotify Client 
 
 A custom **Spotify Client** built with the **Spotify Web API**, aiming to deliver a clean, responsive, and user-friendly interface to explore, play, and manage Spotify content — including tracks, playlists, albums, and more.
 
----
-
-## 🚀 Project Status
-
-**Current Status:** ⛏️ In Development
-
-The core features are currently being built. Basic **authentication via Spotify OAuth** is already implemented. Future updates will include:
-- Music playback
-- User playlists and recommendations
-- Search functionality
-- Album and artist details
-
-Expect frequent updates as development continues.
-
----
-
+--
 ## 🛠️ Tech Stack
 
 | Layer        | Technology                |
